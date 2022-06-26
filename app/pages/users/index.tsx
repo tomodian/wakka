@@ -26,7 +26,6 @@ const Page = (props: Props) => {
   )
 }
 
-// {props.users.map()}
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
