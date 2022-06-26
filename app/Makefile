@@ -8,7 +8,14 @@ PREFIX := docker compose exec app
 endif
 
 migrate:
-	$(PREFIX) $(BIN)/prisma db push
+	$(PREFIX) npx prisma db push
+	$(PREFIX) npx prisma generate
 
 run: migrate
 	$(PREFIX) yarn dev
+
+test:
+	$(PREFIX) yarn jest --detectOpenHandles
+
+lint:
+	$(PREFIX) yarn prettier --write .
