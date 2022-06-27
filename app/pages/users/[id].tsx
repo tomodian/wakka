@@ -1,21 +1,21 @@
 import { GetServerSideProps } from 'next'
 import { User } from '@prisma/client'
 
-import List from '../../components/users/List'
+import Detail from '../../components/users/Detail'
 import user from '../../models/user'
 
 type Props = {
-  users: User[]
+  user: User
 }
 
 const Page = (props: Props) => {
-  return <List users={props.users} />
+  return <Detail user={props.user} />
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
-      users: await user.all()
+      user: await user.find(+context.params!.id!)
     }
   }
 }

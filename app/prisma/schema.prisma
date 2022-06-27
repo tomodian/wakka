@@ -10,9 +10,14 @@ datasource db {
 model User {
   @@map(name: "users")
 
-  id        Int      @id @default(autoincrement())
-  name      String   @db.VarChar(255)
-  email     String   @unique @db.VarChar(255)
+  id         Int     @id @default(autoincrement())
+  name       String  @db.VarChar(255)
+  email      String  @unique @db.VarChar(255)
+  company    String  @db.VarChar(255)
+  title      String  @db.VarChar(255)
+  department String  @db.VarChar(255)
+  avatar_url String? @db.VarChar(255)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

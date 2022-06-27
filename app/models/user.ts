@@ -11,6 +11,21 @@ const all = async (): Promise<User[]> => {
   return JSON.parse(JSON.stringify(got))
 }
 
+const find = async (id: number): Promise<User> => {
+  const got = await db.user.findUnique({
+    where: {
+      id: id
+    }
+  })
+
+  if (!got) {
+    throw new Error(`could not find user ${id}`)
+  }
+
+  return JSON.parse(JSON.stringify(got))
+}
+
 export default {
-  all
+  all,
+  find
 }
