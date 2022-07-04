@@ -15,8 +15,8 @@ const Page = (props: Props) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
-      users: await user.all()
-    }
+      users: await user.all(),
+    },
   }
 }
 
