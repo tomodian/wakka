@@ -1,5 +1,7 @@
 # App
 
+NextJS app for Stripe integration demo.
+
 ## Setup
 
 Configure `.env` if you like to try this app with your Stripe account.
