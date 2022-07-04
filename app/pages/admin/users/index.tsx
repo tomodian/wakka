@@ -1,8 +1,9 @@
 import { GetServerSideProps } from 'next'
 import { User } from '@prisma/client'
+import type { ReactElement } from 'react'
 
-import List from '../../components/users/List'
-import user from '../../models/user'
+import List from '../../../components/admin/users/List'
+import user from '../../../models/user'
 
 type Props = {
   users: User[]
@@ -10,6 +11,10 @@ type Props = {
 
 const Page = (props: Props) => {
   return <List users={props.users} />
+}
+
+Page.getLayout = (page: ReactElement) => {
+  return page
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
