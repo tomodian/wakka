@@ -1,8 +1,8 @@
-http://members.test {
-  redir https://members.test{uri}
+http://wakka.test {
+  redir https://wakka.test{uri}
 }
 
-https://members.test {
+https://wakka.test {
   tls /certs/ssl.crt /certs/ssl.key
 
   reverse_proxy http://app:3000

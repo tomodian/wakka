@@ -18,6 +18,8 @@ model User {
   department String  @db.VarChar(255)
   avatar_url String? @db.VarChar(255)
 
+  stripe_customer_id String? @unique @db.VarChar(255)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

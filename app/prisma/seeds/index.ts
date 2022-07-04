@@ -6,6 +6,6 @@ import users from './users'
 
   await client.user.createMany({
     data: users,
-    skipDuplicates: true
+    skipDuplicates: true,
   })
 })()

@@ -5,7 +5,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
   // These items will become header items.
-  { name: 'メンバー', href: '/users' }
+  { name: 'メンバー', href: '/users' },
 ]
 
 export default () => {

@@ -2,9 +2,9 @@ version: "2"
 services:
 
   app:
-    image: members/app
+    image: wakka/app
     build: app
-    container_name: members.test
+    container_name: wakka.test
     restart: always
     environment:
       DATABASE_URL: postgresql://app:password@db:5432/app?schema=public&connect_timeout=300
@@ -15,7 +15,7 @@ services:
   db:
     # Choosing Aurora PostgreSQL compatible version.
     image: postgres:13.4-alpine3.14
-    container_name: db.members.test
+    container_name: db.wakka.test
     restart: always
     environment:
       POSTGRES_DB: app
@@ -27,9 +27,18 @@ services:
       - "5432:5432"
 
   proxy:
-    image: members/proxy
+    image: wakka/proxy
     build: proxy
-    container_name: proxy.members.test
+    container_name: proxy.wakka.test
     ports:
       - "80:80"
       - "443:443"
+
+  # Stripe mock server, just for automated testing.
+  # https://github.com/stripe/stripe-mock
+  stripe-mock:
+    image: stripe/stripe-mock:v0.136.0
+    container_name: stripe-mock.wakka.test
+    ports:
+      - "12111:12111"
+      - "12112:12112"

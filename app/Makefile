@@ -23,7 +23,7 @@ run: migrate
 	$(PREFIX) yarn dev
 
 test:
-	$(PREFIX) yarn jest --detectOpenHandles
+	$(PREFIX) bash -c "NODE_ENV=test yarn jest --detectOpenHandles"
 
 lint:
 	$(PREFIX) yarn prettier --write .
