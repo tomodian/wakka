@@ -12,9 +12,9 @@ RUN apt-get -y update && \
 
 WORKDIR /app
 
-COPY package.json yarn.lock .
+COPY Makefile package.json yarn.lock .
 
-RUN yarn
+RUN make install
 
 ENV CONTEXT=docker
 
